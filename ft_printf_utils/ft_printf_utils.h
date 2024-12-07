@@ -6,7 +6,7 @@
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 04:37:47 by ikarouat          #+#    #+#             */
-/*   Updated: 2024/12/06 17:23:34 by ikarouat         ###   ########.fr       */
+/*   Updated: 2024/12/08 00:16:44 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ union	u_frmt
 	char		*s;
 	int			xdi;
 };
-int		check_format(char *f, t_frmt arg);
-int		check_flags(char *f);
+int		check_format(const char *f, va_list *ap);
+int		check_flags(const char *f);
 char	*ft_strchr(const char *s, int c);
 t_frmt	ft_putnbr_base(t_frmt n, unsigned int base);
 t_frmt	ft_putstr(char *s);
