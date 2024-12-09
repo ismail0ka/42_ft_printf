@@ -6,7 +6,7 @@
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 04:37:17 by ikarouat          #+#    #+#             */
-/*   Updated: 2024/12/08 00:41:38 by ikarouat         ###   ########.fr       */
+/*   Updated: 2024/12/09 15:57:42 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int	check_format(const char *f, va_list *ap)
 	if (ft_strchr(FORMATS, frmt_spec))
 	{
 		if (frmt_spec == 'c')
-			len = check_flags(flags, ft_putchar(va_arg(*ap, char)));
+			len = check_flags(flags, va_arg(*ap, char));
 		if (frmt_spec == 's')
-			len = check_flags(flags, ft_putstr(va_arg(*ap, char*)));
+			len = check_flags(flags, va_arg(*ap, char*));
 		if (frmt_spec == 'p')
-			len = check_flags(flags, ft_putptr(va_arg(*ap, uintptr_t)));
+			len = check_flags(flags, va_arg(*ap, uintptr_t));
 		if (frmt_spec == 'd' || frmt_spec == 'i' || frmt_spec == 'u')
-			len = check_flags(flags, ft_putnbr_base(va_arg(*ap, int), 10));
+			len = check_flags(flags, va_arg(*ap, int));
 		if (frmt_spec == 'x' || frmt_spec == 'X')
-			len = check_flags(flags, ft_putnbr_base(va_arg(*ap, int), 16);
+			len = check_flags(flags, va_arg(*ap, int));
 	}
 	else
 		break ;//handle invalid format specifier
