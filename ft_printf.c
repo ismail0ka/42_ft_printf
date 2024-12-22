@@ -6,7 +6,7 @@
 /*   By: ikarouat <ikarouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:45:20 by ikarouat          #+#    #+#             */
-/*   Updated: 2024/12/14 02:26:27 by ikarouat         ###   ########.fr       */
+/*   Updated: 2024/12/21 05:05:53 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ int	printf(const char *s, ...)
 	va_start(ap, s);
 	while (*s)
 	{
-		len++;
 		if (*s++ == '%')//check for flags & format specifier
 			len += handle_arg(s, &ap);
 		else
-			write(1, s, 1);
+			len += ft_putchar(*s);
 	}
 	va_end(ap);
 	return (len);
