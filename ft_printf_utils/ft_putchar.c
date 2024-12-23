@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag_parser.h                                   :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 01:11:10 by ikarouat          #+#    #+#             */
-/*   Updated: 2024/12/22 19:37:17 by ikarouat         ###   ########.fr       */
+/*   Created: 2024/12/23 03:17:47 by ikarouat          #+#    #+#             */
+/*   Updated: 2024/12/23 03:19:34 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FLAG_PARSER_H
-# define FT_FLAG_PARSER_H
-# include "libft_utils.h"
+#include "ft_printf_utils.h"
 
-typedef struct s_flags_ctx
+int	ft_putchar(const char c)
 {
-	const char	*flags;
-	size_t		flags_offset;
-	int		has_precision;
-	int		precision;
-} t_flags_ctx;
-
-t_flags_ctx	get_flags(const char *s);
-
-#endif //FT_FLAG_PARSER_H
+	return (write(1, &c, 1));
+}
