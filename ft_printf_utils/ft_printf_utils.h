@@ -6,7 +6,7 @@
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:35:51 by ikarouat          #+#    #+#             */
-/*   Updated: 2024/12/23 03:22:58 by ikarouat         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:56:13 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "ft_flag_parser.h"
+
 typedef struct s_frmt_ctx
 {
 	char		zero_flag;
@@ -23,10 +24,13 @@ typedef struct s_frmt_ctx
 	char		hash_flag;
 	char		space_flag;
 	char		plus_flag;
-	size_t		precision;
+	long		width;
+	long		precision;
+	char		has_precision;
 	const char	*buffer;
 	size_t		buffer_len;
 } t_frmt_ctx;
+
 int		handle_arg(const char *s, va_list *ap_p);
 const char	*ft_putnbr_base(int n, const char *base);
 const char	*ft_put_unsigned_nbr(unsigned int n);

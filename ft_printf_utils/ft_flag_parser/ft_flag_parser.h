@@ -6,22 +6,15 @@
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 01:11:10 by ikarouat          #+#    #+#             */
-/*   Updated: 2024/12/22 19:37:17 by ikarouat         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:02:54 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FLAG_PARSER_H
-# define FT_FLAG_PARSER_H
-# include "libft_utils.h"
+#define FT_FLAG_PARSER_H
+#include "libft_utils.h"
 
-typedef struct s_flags_ctx
-{
-	const char	*flags;
-	size_t		flags_offset;
-	int		has_precision;
-	int		precision;
-} t_flags_ctx;
+void get_flags(const char **s, t_frmt_ctx *frmt_ctx);
+char *apply_flags(t_frmt_ctx *frmt_ctx);
 
-t_flags_ctx	get_flags(const char *s);
-
-#endif //FT_FLAG_PARSER_H
+#endif // FT_FLAG_PARSER_H

@@ -15,16 +15,17 @@
 int	printf(const char *s, ...)
 {
 	va_list		ap;
-	int		len;
+	int			len;
 
 	len = 0;
 	va_start(ap, s);
 	while (*s)
 	{
-		if (*s++ == '%')//check for flags & format specifier
-			len += handle_arg(s, &ap);
+		if (*s == '%')
+			len += handle_arg(&s, &ap);
 		else
 			len += ft_putchar(*s);
+		s++;
 	}
 	va_end(ap);
 	return (len);
