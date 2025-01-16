@@ -6,7 +6,7 @@
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:35:51 by ikarouat          #+#    #+#             */
-/*   Updated: 2025/01/15 15:56:13 by ikarouat         ###   ########.fr       */
+/*   Updated: 2025/01/16 19:11:56 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,14 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_flag_parser.h"
+# include <stdarg.h>
+# include <stdint.h>
 
-typedef struct s_frmt_ctx
-{
-	char		zero_flag;
-	char		minus_flag;
-	char		hash_flag;
-	char		space_flag;
-	char		plus_flag;
-	long		width;
-	long		precision;
-	char		has_precision;
-	const char	*buffer;
-	size_t		buffer_len;
-} t_frmt_ctx;
-
-int		handle_arg(const char *s, va_list *ap_p);
-const char	*ft_putnbr_base(int n, const char *base);
-const char	*ft_put_unsigned_nbr(unsigned int n);
-const char	*ft_putptr(uintptr_t);
-int		ft_putchar(const char c);
+int		handle_format(const char *s, va_list *ap_p, char *buffer);
+char	*ft_putnbr_base(int n, const char *base);
+char	*ft_put_unsigned_nbr(unsigned int n);
+char	*ft_putptr(uintptr_t);
 int		ft_putstr(const char *s);
+int		ft_putchar(const char c);
+size_t	ft_strlen(const char *s);
 #endif //FT_PRINTF_UTILS_H

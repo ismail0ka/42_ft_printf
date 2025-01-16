@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag_parser.h                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 01:11:10 by ikarouat          #+#    #+#             */
-/*   Updated: 2025/01/15 16:02:54 by ikarouat         ###   ########.fr       */
+/*   Created: 2025/01/16 18:46:53 by ikarouat          #+#    #+#             */
+/*   Updated: 2025/01/16 18:47:04 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FLAG_PARSER_H
-#define FT_FLAG_PARSER_H
-#include "libft_utils.h"
+# include "ft_printf_utils.h"
 
-void get_flags(const char **s, t_frmt_ctx *frmt_ctx);
-char *apply_flags(t_frmt_ctx *frmt_ctx);
+size_t	ft_strlen(const char *s)
+{
+    size_t	len;
 
-#endif // FT_FLAG_PARSER_H
+    len = 0;
+    while (s[len])
+        len++;
+    return (len);
+}
