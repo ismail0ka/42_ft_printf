@@ -6,7 +6,7 @@
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:45:20 by ikarouat          #+#    #+#             */
-/*   Updated: 2025/01/17 12:16:49 by ikarouat         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:09:07 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_printf(const char *s, ...)
 	len = 0;
 	buffer = NULL;
 	va_start(ap, s);
-	while (*s)
+	while (s && *s)
 	{
 		if (*s == '%')
 		{

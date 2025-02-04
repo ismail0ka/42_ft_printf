@@ -6,7 +6,7 @@
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 03:13:42 by ikarouat          #+#    #+#             */
-/*   Updated: 2025/01/16 18:51:04 by ikarouat         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:30:33 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ static size_t	ft_nbrlen(int n, unsigned int base)
     size_t	len;
 
     len = 1;
-    if (n < 0)
-    {
-        len++;
-        n = -n;
-    }
     while (n >= (int)base)
     {
         n /= base;
