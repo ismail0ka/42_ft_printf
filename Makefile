@@ -9,8 +9,10 @@ SRCS = ft_printf.c \
        ft_printf_utils/ft_putptr.c \
        ft_printf_utils/ft_putstr.c \
        ft_printf_utils/ft_putchar.c \
-       ft_printf_utils/ft_putnbr_base.c \
-       ft_printf_utils/ft_strlen.c
+       ft_printf_utils/ft_putnbr.c \
+       ft_printf_utils/ft_strlen.c \
+       ft_printf_utils/ft_puthex.c \
+       ft_printf_utils/ft_strcpy.c 
 OBJS = $(SRCS:.c=.o)
 
 # Build the static library

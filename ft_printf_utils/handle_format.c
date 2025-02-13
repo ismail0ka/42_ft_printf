@@ -6,7 +6,7 @@
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:00:21 by ikarouat          #+#    #+#             */
-/*   Updated: 2025/01/16 23:34:12 by ikarouat         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:08:38 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static char	*check_format_specifier(const char s, va_list *ap_p)
 
 	frmt_spec = s;
 	if (frmt_spec == 'd' || frmt_spec == 'i')
-		return (ft_putnbr_base(va_arg(*ap_p, int), "0123456789"));
+		return (ft_putnbr(va_arg(*ap_p, int)));
 	else if (frmt_spec == 'u')
 		return (ft_put_unsigned_nbr(va_arg(*ap_p, unsigned int)));
 	else if (frmt_spec == 'x')
-		return (ft_putnbr_base(va_arg(*ap_p, int), "0123456789abcdef"));
+		return (ft_puthex(va_arg(*ap_p, unsigned int), 'x'));
 	else if (frmt_spec == 'X')
-		return (ft_putnbr_base(va_arg(*ap_p, int), "0123456789ABCDEF"));
+		return (ft_puthex(va_arg(*ap_p, unsigned int), 'X'));
 	else if (frmt_spec == 'p')
 		return (ft_putptr(va_arg(*ap_p, uintptr_t)));
 	else if (frmt_spec == 's')

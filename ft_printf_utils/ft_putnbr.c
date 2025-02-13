@@ -1,53 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikarouat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 03:13:42 by ikarouat          #+#    #+#             */
-/*   Updated: 2025/01/21 17:30:33 by ikarouat         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:05:40 by ikarouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_utils.h"
 
-static size_t	ft_nbrlen(int n, unsigned int base)
+static int	ft_nbrlen(int n, int base_len)
 {
-    size_t	len;
+    int		len;
 
     len = 1;
-    while (n >= (int)base)
+    if (n == -2147483648)
+        return (11);
+    if (n < 0)
     {
-        n /= base;
+        n = -n;
+        len++;
+    }
+    while (n > (base_len - 1))
+    {
+        n /= base_len;
         len++;
     }
     return (len);
 }
 
-char	*ft_putnbr_base(int n, const char *base)
+char	*ft_putnbr(int n)
 {
-    size_t        n_len;
-	unsigned int        base_len;
-    char          *str;
+    char	*str;
+    int     nbr_len;
     
-    base_len = ft_strlen(base);
-    n_len = ft_nbrlen(n, base_len);
-    str = malloc(n_len + 1);
+    nbr_len = ft_nbrlen(n, 10);
+    str = (char *)malloc(sizeof(char) * (nbr_len + 1));
     if (!str)
         return (NULL);
-    str[n_len] = '\0';
+    if (n == -2147483648)
+        return (ft_strcpy(str, "-2147483648"));
+    str[nbr_len] = '\0';
     if (n < 0)
     {
         str[0] = '-';
         n = -n;
     }
-    if (n == 0)
-        str[0] = '0';
-    while (n > 0)
+    nbr_len--;
+    while (nbr_len >= 0)
     {
-        str[--n_len] = base[n % base_len];
-        n /= base_len;
+        str[nbr_len] = n % 10 + '0';
+        n /= 10;
+        if (n == 0 && str[0] == '-')
+            break ;
+        nbr_len--;
     }
     return (str);
 }
